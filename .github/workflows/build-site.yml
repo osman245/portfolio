@@ -1,0 +1,51 @@
+name: Personal Website CICD
+on:
+  pull_request:
+
+env:
+  AWS-DEFAULT-REGION: us-west-2
+
+jobs:
+  build-site:
+    runs-on: ubuntu-20.04
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.91.2'
+          extended: true
+      - name: Build Site
+        run: hugo -s work --minify
+      - name: Adding landing page to the site
+        run: |
+          mkdir -p work/final_output/work/
+          cp -r work/public/* work/final_output/work/
+          cp -r landing_page/* work/final_output/
+        shell: bash
+      - name: Store public dir as an artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: output
+          path: work/final_output/
+  publish-site:
+    runs-on: ubuntu-20.04
+    needs: build-site
+    steps:
+      - name: Download artifact from build stage
+        uses: actions/download-artifact@v1
+        with:
+          name: output
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET }}
+          aws-region: ${{ env.AWS-DEFAULT-REGION }}
+      - name: Sync site to S3 with aws cli
+        run: aws s3 sync --size-only --delete output/ s3://${{ secrets.S3_BUCKET }}
+      - name: Invalidate cache on CloudFront
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRO_ID }} --paths "/*"

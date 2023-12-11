@@ -1,0 +1,197 @@
+%-------------------------
+% Resume in Latex
+% Author  : Mohit Sharma
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,10.5pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{siunitx}
+\input{glyphtounicode}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+% Sections formatting
+\titleformat{\section}{
+\vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{orange} \titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+\item\small{
+\textbf{#1}{: #2 \vspace{-2pt}}
+}
+}
+
+\newcommand{\resumePubItem}[3]{
+\item\small{
+\textbf{#1 \null\hfill{#2}}{#3} \vspace{-2pt}
+}
+}
+
+\newcommand{\resumeSubheading}[4]{
+\vspace{-1pt}\item
+\begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1}       & #2                 \\
+    \textit{\small#3} & \textit{\small #4} \\
+\end{tabular*}\vspace{-3pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \vspace{3pt}
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\newcommand{\resumePublicationItem}[3]{\resumePubItem{#1}{#2}\newline{#3}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\newcommand{\resumeTilde}{\raise.17ex\hbox{$\scriptstyle\sim$}}
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+\textbf{\href{https://sharmamohit.com/} {\color[HTML]{DF691A} Mohit Sharma}} & \color[HTML]{DF691A} Email : \href{mailto:mohitsharma44@gmail.com}{mohitsharma44@gmail.com}\\
+\href{https://sharmamohit.com/}{https://www.sharmamohit.com}  & Mobile : +1-778-587-6241\\
+\end{tabular*}
+
+
+%-----------SUMMARY-------------------
+\section{\color[HTML]{DF691A} Summary}
+Innovative DevOps engineer with a strong Linux background and over a decade of experience designing,  automating and managing mission critical infrastructure deployments by leveraging SRE principles and other DevOps processes.  Expert in scripting using python with an emphasis on real-time, high speed data pipelines and distributed computing across networks.
+
+
+%-----------EXPERIENCE-----------------
+\section{\color[HTML]{DF691A} Experience}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{Workday}{Victoria, BC, Canada}
+{Senior Software Development Engineer, DevOps}{May 2023 - Present.}
+\resumeSubSubheading
+{Software Development Engineer III, DevOps}{May 2021 - April 2023.}
+\resumeSubSubheading
+{Software Development Engineer II, DevOps}{May 2019 - April 2021.}
+\resumeItemListStart
+\resumeItem{Development and Operations}{}
+\newline
+{\textbf{-} Implementing policy-based infrastructure management using 
+\href{https://www.openpolicyagent.org/}{OPA} and \href{https://www.runatlantis.io/}{Atlantis} 
+improving developer experience while providing them more control over their resources and helping them shift 
+security best practices to the left.}
+\newline
+{\textbf{-} Mentoring developers and junior engineers as they grow into their role.}
+\newline
+{\textbf{-} Created an automated AWS deployment pipeline to deploy microservice application cross account and cross region
+reducing operations toil by several hours.}
+\newline
+{\textbf{-} Actively manage, improve, and monitor infrastructure resources in DC and on AWS including but not limited to
+EC2, ECS, Route53, S3, RDS, Lambda, ES etc. using tools like ansible, terraform, wavefront, ELK stack and slackbot.}
+\newline
+{\textbf{-} Writing Jenkinsfiles and improving shared libraries for automated build and deployment of several applications and services using Jenkins.}
+\newline
+{\textbf{-} Migrating applications and services to an in-house flavor of Kubernetes platform.}
+\resumeItem{Knowledge Share}{Spearheaded an initiative between operations and multiple dev teams to empower the developers with the knowledge
+they would need to take ownership of their services.}
+\resumeItem{Scrum Master}{Helping team self organize and self manage by incorporating servant leadership principles.}
+\resumeItemListEnd
+
+\resumeSubheading
+{NYU CUSP}{Brooklyn, NY, USA}
+{Associate Research Scientist}{May 2015 - May 2019}
+\resumeSubSubheading
+{Assistant Research Scientist}{June 2014 - May 2015.}
+\resumeItemListStart
+\resumeItem{Dockkeeper}
+{Developed a scalable and secure container scheduling and monitoring tool that leverages the docker ecosystem and prometheus for provisioning services on physical hosts. This helped eliminate the VM license fees of over \$35,000 per year and optimizing the efficiency of hosts by over 55\%.}
+\resumeItem{UOInfra}
+{Architected the NYU/CUSP Urban Observatory's multi-site physical infrastructure consisting of multiple dense compute and storage nodes comprising of over half a petabyte of storage space, provisioned for multi-user mini-HPC environments, using Ansible and Packer.\\
+Deployed a 27 screen vizwall using a cluster of networked raspberry Pi's enabling researchers to interpret their visualizable data, while keeping the whole price to 1/8 th of that of a commercial solution.}
+\resumeItem{SONYC}
+{Developed a secure machine critical IoT platform and implemented CI/CD framework for deploying and maintaining over 100 urban noise monitoring sensors in NYC. This project has won the \href{https://www.nsf.gov/awardsearch/showAward?AWD_ID=1544753}{\$ $4.6$ Million} CPS frontier award from NSF. }
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------------
+\section{\color[HTML]{DF691A} Education}
+\resumeSubHeadingListStart
+\resumeSubheading
+{NYU Tandon School of Engineering}{Brooklyn, NY, USA}
+{Master of Science in Telecommunication Networks}{Aug. 2012 -- May. 2014}
+
+\textit{\small{Thesis - \href{https://sharmamohit.com/project/citysynth/}{CitySynth: Imaging with a Network of Devices}}}
+\resumeSubHeadingListEnd
+
+
+%-----------CERTIFICATIONS-----------
+\section{\color[HTML]{DF691A} Certifications}
+\resumeSubHeadingListStart
+\resumeSubItem{CKA Certified Kubernetes Administrator} \null\hfill \textit{\small{August 2020 - August 2023}}
+\newline
+\newline
+{Certificate Id: \href{https://www.youracclaim.com/badges/ce11744e-269f-459d-836a-9ce4c11ff2c9}{LF-bu4edd0v34}}
+\resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------------
+\section{\color[HTML]{DF691A} Projects}
+\resumeSubHeadingListStart
+% \resumeSubItem{CUIC}
+% {Open source python library for interfacing with GigE vision broadband, thermographic and hyperspectral cameras using advanced message queuing protocol to acquire images and perform pre-processing on-the-fly.}
+\resumeSubItem{UCSLHUB}
+{Developed a resilient and scalable back-end infrastructure using docker swarm, jupyterhub and keycloak for hosting the CUSP's UCSL bootcamp which are accessed by hundreds of students every year.}
+\resumeSubItem{HOMELAB}
+{Running a HCI homelab with ansible and terraform managed KVM nodes with Ceph running behind a Pfsense firewall that is used for testing and development including emulation of distributed datacenters for UO Infra.}
+\resumeSubHeadingListEnd
+
+\section{\color[HTML]{DF691A} Publications, Teaching Experience and more..}
+\resumeSubHeadingListStart
+\resumeItem{View it online}{\href{https://sharmamohit.com/work/}{https://sharmamohit.com/}}
+\newline
+\resumeSubHeadingListEnd
+
+\end{document}
